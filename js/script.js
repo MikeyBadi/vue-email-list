@@ -4,23 +4,21 @@ const app = new Vue({
   data:{
     emails:[],
     isLoading: true,
-    allEmailLoaded: false
+    allEmailLoaded: 100
   },
   mounted(){
     this.getEmail()
   },
   methods:{
     getEmail(){
-      for(let i = 0; i < 10; i++){
+      for(let i = 0; i < this.allEmailLoaded; i++){
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail').
         then(res =>{
           const email = res.data.response;
+          console.log(email);
           this.emails.push(email)
-          this.allEmailLoaded = true
-          if(this.allEmailLoaded = true){
-            setTimeout(()=>{
+          if(this.emails.length === this.allEmailLoaded){
               this.isLoading = false
-            }, 1000)
           }
         })
       }
