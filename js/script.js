@@ -3,7 +3,8 @@ const app = new Vue({
 
   data:{
     emails:[],
-    isLoading: true
+    isLoading: true,
+    allEmailLoaded: false
   },
   mounted(){
     this.getEmail()
@@ -15,11 +16,15 @@ const app = new Vue({
         then(res =>{
           const email = res.data.response;
           this.emails.push(email)
+          this.allEmailLoaded = true
+          if(this.allEmailLoaded = true){
+            setTimeout(()=>{
+              this.isLoading = false
+            }, 1000)
+          }
         })
       }
-      setTimeout(()=>{
-        this.isLoading = false
-      }, 1000)
+
     }
   }
 })
