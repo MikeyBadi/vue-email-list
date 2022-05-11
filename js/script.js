@@ -23,24 +23,3 @@ const app = new Vue({
     }
   }
 })
-
-
-
-
-
-
-
-
-// getEmail(){
-//   for(let i = 0; i < 10 ; i++){
-//     axios.get('https://flynn.boolean.careers/exercises/api/random/mail').
-//     then(res =>{
-//       console.log(res.data.response);
-//       const email = res.data.response;
-//       this.emails.push(email)
-//     })
-//   }
-//   setTimeout(()=>{
-//     this.isLoading = false
-//   },1000)
-// }
